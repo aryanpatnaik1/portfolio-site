@@ -30,7 +30,7 @@ h2.section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing:
 .nav-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--fg); font-weight: 500; font-size: 0.9rem; }
-.logo { color: #ffffff !important; font-weight: 600; font-size: 1.1rem; }
+.logo { color: var(--fg); font-weight: 600; font-size: 1.1rem; }
 
 /* Hero */
 .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; width: 90%; max-width: 1200px; margin: 0 auto; }

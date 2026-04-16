@@ -62,8 +62,8 @@ function renderContact() {
 
 // SINGLE DOMContentLoaded listener - all initialization in one place
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // 1. Load saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     document.body.setAttribute('data-theme', savedTheme);
 
     // 2. Render all content
@@ -85,12 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const ambientBtn = document.getElementById('ambient-toggle');
     const canvasEl = document.getElementById('ambient-canvas');
 
-    // 6. Check for saved ambient preference
-    if (localStorage.getItem('ambient') === 'true') {
+    // 6. Check for saved ambient preference or default to true
+    const isAmbientOn = localStorage.getItem('ambient') !== 'false';
+    if (isAmbientOn) {
         canvasEl.classList.add('active');
         ambientBtn.classList.add('active');
         AmbientBackground.draw();
     }
+    localStorage.setItem('ambient', isAmbientOn);
 
     // 7. Setup ambient toggle
     ambientBtn.addEventListener('click', () => {
