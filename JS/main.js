@@ -12,6 +12,15 @@ function renderHero() {
 
 function renderProjects() {
     const target = document.getElementById('projects-target');
+    const section = document.getElementById('projects');
+
+    if (!CONFIG.projects || CONFIG.projects.length === 0) {
+        if (section) section.style.display = 'none';
+        if (target) target.innerHTML = '';
+        return;
+    }
+
+    if (section) section.style.display = '';
     target.classList.add('stagger-children');
     target.innerHTML = CONFIG.projects.map(p => `
         <a href="${p.link}" class="project-card">
