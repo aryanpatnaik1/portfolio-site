@@ -14,7 +14,7 @@ const CONFIG = {
     projects: [
         {
             title: "SMS Spam Detector",
-            desc: "Built October 2026. I trained a TF-IDF and logistic regression spam filter on 5,171 unique SMS messages, compared standard and balanced models, and deployed the selected model through a Flask API with a JavaScript frontend. The app lets users enter a text and receive a spam verdict, uncertainty flag, and model score, with validation and loading states to make the experience more reliable. This project taught me how to move from experimentation to a working product: the reported 97.4% accuracy and 0.898 spam F1-score describe the original two-label classifier, while the uncertain category is an experimental review rule and the displayed scores are model estimates. It runs locally and is not publicly deployed yet.",
+            desc: "Built in October 2026. I trained a TF-IDF + logistic regression spam detector on 5,171 unique SMS messages, compared standard and balanced models, and selected the stronger option. The project includes a Flask API and a JavaScript frontend where users enter a message and get a spam verdict, uncertainty flag, and score. It taught me how to turn a machine learning model into a working app and how to explain the limits of the model clearly. The reported 97.4% accuracy and 0.898 spam F1-score describe the original two-label classifier; the uncertain category is an experimental review rule, and scores are model estimates.",
             stack: ["Python", "scikit-learn", "Flask", "HTML", "CSS", "JavaScript"]
         }
     ]
