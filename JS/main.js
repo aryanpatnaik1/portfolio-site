@@ -24,8 +24,12 @@ function renderProjects() {
     target.classList.add('stagger-children');
     target.innerHTML = CONFIG.projects.map(p => {
         const content = `
-            <h3>${p.title}</h3>
+            <div class="project-header">
+                <h3>${p.title}</h3>
+                ${p.details ? `<button class="project-more-toggle" type="button" aria-expanded="false">More</button>` : ''}
+            </div>
             <p>${p.desc}</p>
+            ${p.details ? `<div class="project-more-panel"><p>${p.details}</p></div>` : ''}
             <div class="tech-list">
                 ${p.stack.map(s => `<span>// ${s}</span>`).join('')}
             </div>
@@ -35,6 +39,15 @@ function renderProjects() {
             ? `<a href="${p.link}" class="project-card">${content}</a>`
             : `<article class="project-card">${content}</article>`;
     }).join('');
+
+    target.querySelectorAll('.project-more-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.project-card');
+            const isExpanded = card.classList.toggle('expanded');
+            button.setAttribute('aria-expanded', String(isExpanded));
+            button.textContent = isExpanded ? 'Less' : 'More';
+        });
+    });
 }
 
 function renderAbout() {
