@@ -22,15 +22,19 @@ function renderProjects() {
 
     if (section) section.style.display = '';
     target.classList.add('stagger-children');
-    target.innerHTML = CONFIG.projects.map(p => `
-        <a href="${p.link}" class="project-card">
+    target.innerHTML = CONFIG.projects.map(p => {
+        const content = `
             <h3>${p.title}</h3>
             <p>${p.desc}</p>
             <div class="tech-list">
                 ${p.stack.map(s => `<span>// ${s}</span>`).join('')}
             </div>
-        </a>
-    `).join('');
+        `;
+
+        return p.link
+            ? `<a href="${p.link}" class="project-card">${content}</a>`
+            : `<article class="project-card">${content}</article>`;
+    }).join('');
 }
 
 function renderAbout() {
