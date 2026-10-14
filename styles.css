@@ -45,6 +45,24 @@ h2.section-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 2
 .project-card:hover { background: var(--card-hover); }
 .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
 .project-card h3 { font-size: 2.3rem; margin-bottom: 0; line-height: 1; font-weight: 600; }
+.project-title-link { color: inherit; text-decoration: none; }
+.project-title-link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.project-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.project-repo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 12px;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.project-repo-link:hover { background: var(--card-hover); border-color: var(--muted); }
+.project-title-link:focus-visible, .project-repo-link:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
 .project-more-toggle {
     border: 1px solid var(--border);
     background: var(--bg);
@@ -171,4 +189,3 @@ h2.section-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 2
 #ambient-canvas.active {
     opacity: 0.6; /* Subtle splash of color */
 }
-

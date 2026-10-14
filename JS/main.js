@@ -25,8 +25,11 @@ function renderProjects() {
     target.innerHTML = CONFIG.projects.map(p => {
         const content = `
             <div class="project-header">
-                <h3>${p.title}</h3>
-                ${p.details ? `<button class="project-more-toggle" type="button" aria-expanded="false">More</button>` : ''}
+                <h3>${p.repo ? `<a class="project-title-link" href="${p.repo}" target="_blank" rel="noopener noreferrer">${p.title}</a>` : p.title}</h3>
+                <div class="project-actions">
+                    ${p.repo ? `<a class="project-repo-link" href="${p.repo}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> View repo <span aria-hidden="true">↗</span></a>` : ''}
+                    ${p.details ? `<button class="project-more-toggle" type="button" aria-expanded="false">More</button>` : ''}
+                </div>
             </div>
             <p>${p.desc}</p>
             ${p.details ? `<div class="project-more-panel"><p>${p.details}</p></div>` : ''}
@@ -35,7 +38,7 @@ function renderProjects() {
             </div>
         `;
 
-        return p.link
+        return p.link && !p.repo
             ? `<a href="${p.link}" class="project-card">${content}</a>`
             : `<article class="project-card">${content}</article>`;
     }).join('');
